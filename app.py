@@ -61,5 +61,11 @@ def graphcall():
     print(json.dumps(events))
     return json.dumps(events)
 
+
+@app.route('/test')
+def test():
+    return 'Hello'
+
+
 if __name__ == '__main__':
     app.run()
