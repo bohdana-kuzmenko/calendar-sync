@@ -22,6 +22,7 @@ def homepage():
         'redirect_uri': REDIRECT_URI,
         'state': auth_state,
         'prompt': prompt_behavior,
+        'admin_consent': True
     })
     redirect_url = ''.join([AUTHORITY_URL, '/oauth2/authorize?', params])
     return redirect(redirect_url)

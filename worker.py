@@ -20,9 +20,10 @@ def get_calendar(auth_token):
         'subject', 'webLink', 'bodyPreview', 'start', 'end', 'location',
         'attenders', 'organizer',
     ]
-    endpoint = ''.join([RESOURCE, API_VERSION, '/me/calendar/events?top=10'])
+    endpoint = ''.join([RESOURCE, API_VERSION, '/me/calendars'])
     graph_data = requests.get(
         endpoint, headers=http_headers, stream=False).json()
+    print(graph_data)
     return json.dumps(
         [{k: v for k, v in event.items() if k in event_keys} for event in
-         graph_data.get('value')])
+         graph_data.get('value', [])])
